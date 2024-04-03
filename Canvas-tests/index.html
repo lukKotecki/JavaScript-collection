@@ -9,17 +9,23 @@
 <body>
 
     <h1>Canvas</h1>    
-
-    <div id="element"></div>
-
+    <div id="element">element</div>
     <canvas id="canvas"></canvas>
-
-
+    
     <form>
-        <input id="input" type="file">
+        <input id="input" type="file" >
+        <br>
+        <label for="width">Szerokość</label>
+        <input id='width' type="number" value="200">
+
+        <br>
+        <input id="button" type="button" value="kliknij">
+        <br>
         <input id='submit' type="submit">
     </form>
 
+    <img id="img">
+    
     <script src="index.js"></script>
 </body>
 </html>
