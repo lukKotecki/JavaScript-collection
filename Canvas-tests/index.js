@@ -74,22 +74,45 @@ const width = document.getElementById('width')
 
 
 input.addEventListener('change',(e)=>{
-    e.preventDefault()
     const image = new Image()
-
     let URL = window.URL;
     let url = URL.createObjectURL(e.target.files[0]);
     image.src = url;
 
-    console.log(url)
-
-    canvas.width = width.value
-    canvas.height = 100
-
     image.addEventListener('load', ()=>{
-        // ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
+        // ctx.drawImage(image, 0, 0)
     })
-
 })
 
+
+submit.addEventListener('click', (e)=>{
+    e.preventDefault()
+    const scannedImage = ctx.getImageData(0,0, canvas.width, canvas.height)
+    const scannedData = scannedImage.data
+    for(let i = 0; i<scannedData.length; i+=4){
+        const total = scannedData[i] + scannedData[i+1] + scannedData[i+2]
+        const avergeColorValue = total/3
+        scannedData[i] = avergeColorValue
+        scannedData[i+1] = 0
+        scannedData[i+2] = 0
+        // console.log(i)
+    }
+
+    // console.log(scannedData)
+    scannedImage.data = scannedData
+    ctx.putImageData(scannedImage, 0, 0)
+    console.log(canvas.toDataURL())
+    downloadURI(canvas.toDataURL())
+})
+
+
+function downloadURI(uri, name='RGB image') 
+{
+    var link = document.createElement("a");
+    link.setAttribute('download', name);
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+}
