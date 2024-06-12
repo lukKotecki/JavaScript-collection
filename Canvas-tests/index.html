@@ -30,32 +30,20 @@
     <iframe id="my_iframe" style="display:none;"></iframe>
 
 
-
-
-    <div class="container row bg-dark text-white">
-        <h1 class="col" >This is a heading</h1>
-        <p class="col">This is a paragraph of text.</p>
-    </div>
-    <div class="container">
-
-        <div class="row">
-            <div class="col-md-6">Column left</div>
-            <div class="col-md-6">Column right</div>
+    <div class="accordion" id="myAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">1. What is HTML?</button>									
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+                <div class="card-body">
+                     <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                 </div>
         </div>
-    </div>
-        
-    <!-- Container with light background -->
-    <div class="container bg-light">
-        <h1>This is a heading</h1>
-        <p>This is a paragraph of text.</p>
-    </div>
-    
-    <!-- Container with border -->
-    <div class="container border bg-danger ">
-        <h1>This is a heading</h1>
-        <p>This is a paragraph of text.</p>
-    </div>
+        </div>
+     </div>
 
+     <p class="display-1">to jest display</p>
 
 
 
